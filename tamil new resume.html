@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbhatamilan M | Resume</title>
+    <style>
+        :root {
+            --bg-1: #f4f7ff;
+            --bg-2: #eef9ff;
+            --primary: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #06b6d4;
+            --dark: #1f2937;
+            --muted: #6b7280;
+            --card: #ffffff;
+            --line: #e5e7eb;
+            --shadow: 0 18px 45px rgba(79, 70, 229, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+            color: var(--dark);
+            padding: 30px 20px;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: var(--shadow);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(120deg, var(--primary), var(--secondary), var(--accent));
+            color: white;
+            padding: 35px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .profile-badge {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.18);
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-name h1 {
+            margin: 0;
+            font-size: 2.3rem;
+            letter-spacing: 1px;
+        }
+
+        .profile-role {
+            margin: 8px 0 0;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: white;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 0.9rem;
+            transition: 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1.7fr 1fr;
+            gap: 25px;
+            padding: 30px 40px 40px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 22px 20px;
+            margin-bottom: 22px;
+            box-shadow: 0 8px 20px rgba(17, 24, 39, 0.04);
+        }
+
+        .card h2 {
+            margin: 0 0 16px;
+            color: var(--primary);
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card h2::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            display: inline-block;
+        }
+
+        .summary {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            border: 1px solid var(--line);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: linear-gradient(135deg, #eef2ff, #ecfeff);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skill-list li {
+            background: linear-gradient(135deg, #e0e7ff, #cffafe);
+            color: var(--dark);
+            border: 1px solid #c7d2fe;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .cert-list, .detail-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .cert-list li, .detail-list li {
+            padding: 10px 12px;
+            border-left: 4px solid var(--accent);
+            background: #f8fafc;
+            border-radius: 10px;
+            color: var(--dark);
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-list li {
+            background: #f8fafc;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 12px 14px;
+            line-height: 1.5;
+        }
+
+        .contact-list strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .personal-details {
+            display: grid;
+            gap: 10px;
+        }
+
+        .personal-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            border-bottom: 1px dashed var(--line);
+            padding-bottom: 8px;
+        }
+
+        .personal-item span:first-child {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .footer {
+            background: #f8fafc;
+            border-top: 1px solid var(--line);
+            padding: 20px 40px 30px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            color: var(--dark);
+        }
+
+        .signature {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        @media (max-width: 800px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .social-links {
+                justify-content: flex-start;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div class="profile-badge">IM</div>
+                <div class="profile-name">
+                    <h1>Inbhatamilan M</h1>
+                    <p class="profile-role">Full Stack Developer</p>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/tamilxa" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/tamil-tamil-4939aa309/" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+        </header>
+
+        <div class="content">
+            <main>
+                <section class="card">
+                    <h2>Professional Summary</h2>
+                    <p class="summary">
+                        Enthusiastic and motivated full-stack learner with a strong interest in Java, HTML, CSS, JavaScript, and Django.
+                        I am focused on building practical web applications, improving my technical skills, and growing steadily in software development.
+                        I enjoy solving problems, learning new technologies, and contributing to innovative projects.
+                    </p>
+                </section>
+
+                <section class="card">
+                    <h2>Education</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Degree</th>
+                                <th>Institution</th>
+                                <th>Year</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>B.E</td>
+                                <td>Hindusthan College of Technology</td>
+                                <td>2027</td>
+                                <td>70.9%</td>
+                            </tr>
+                            <tr>
+                                <td>HSC</td>
+                                <td>Sri Jothi Hr. Sec. School</td>
+                                <td>2023</td>
+                                <td>69%</td>
+                            </tr>
+                            <tr>
+                                <td>SSLC</td>
+                                <td>Sri Jothi Hr. Sec. School</td>
+                                <td>2021</td>
+                                <td>All Pass</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="card">
+                    <h2>Technical Skills</h2>
+                    <ul class="skill-list">
+                        <li>JAVA</li>
+                        <li>C</li>
+                        <li>C++</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>Django</li>
+                    </ul>
+                </section>
+
+                <section class="card">
+                    <h2>Certifications</h2>
+                    <ul class="cert-list">
+                        <li>Java FullStack - Simplilearn</li>
+                        <li>Python Programming - ImageCon</li>
+                        <li>HTML & CSS - Infosys Springboard</li>
+                        <li>JavaScript - Simplilearn & Infosys Springboard</li>
+                    </ul>
+                </section>
+            </main>
+
+            <aside>
+                <section class="card">
+                    <h2>Contact</h2>
+                    <ul class="contact-list">
+                        <li>
+                            <strong>Email</strong>
+                            tamil250382@gmail.com
+                        </li>
+                        <li>
+                            <strong>Phone</strong>
+                            9360857267
+                        </li>
+                        <li>
+                            <strong>Address</strong>
+                            Omalur, Salem, Tamil Nadu
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="card">
+                    <h2>Personal Details</h2>
+                    <div class="personal-details">
+                        <div class="personal-item"><span>Name</span><span>Inbhatamilan M</span></div>
+                        <div class="personal-item"><span>Email</span><span>tamil250382@gmail.com</span></div>
+                        <div class="personal-item"><span>Phone</span><span>9360857267</span></div>
+                        <div class="personal-item"><span>DOB</span><span>11/06/2005</span></div>
+                        <div class="personal-item"><span>Place</span><span>Salem</span></div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+
+        <footer class="footer">
+            <div>
+                <strong>Date:</strong> 06/08/2026
+            </div>
+            <div>
+                <strong>Place:</strong> Salem
+            </div>
+            <div class="signature">Signature: Inbhatamilan M</div>
+        </footer>
+    </div>
+</body>
+</html>
